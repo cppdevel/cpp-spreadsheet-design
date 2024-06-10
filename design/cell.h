@@ -16,6 +16,10 @@ public:
 
     Value GetValue() const override;
     std::string GetText() const override;
+    std::vector<Position> GetReferencedCells() const override;
+
+    bool IsCyclicDependenced(const Impl& impl) const;
+    void InvalidateCache() override;
 
 private:
     class Impl {
