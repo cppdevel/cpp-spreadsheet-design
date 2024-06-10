@@ -4,6 +4,7 @@
 #include "common.h"
 
 #include <functional>
+#include <unordered_map>
 
 class Sheet : public SheetInterface {
 public:
@@ -30,5 +31,6 @@ private:
                     const std::function<void(const CellInterface&)>& printCell) const;
     Size GetActualSize() const;
 
-    std::vector<std::vector<std::unique_ptr<Cell>>> cells_;
+    std::unordered_map<Position, std::unique_ptr<Cell>> cells_;
+    //std::vector<std::vector<std::unique_ptr<Cell>>> cells_
 };
